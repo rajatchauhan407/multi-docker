@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install: 
-  - docker build -t rajatchauhan407/react-client -f Dockerfile.dev ./client
+  - docker build -t rajatchauhan407/react-client -f ./client/Dockerfile.dev ./client
 
 script: 
   - docker run -e CI=true rajatchauhan407/react-client npm test

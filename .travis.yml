@@ -4,10 +4,10 @@ services:
   - docker
 
 before_install: 
-  - docker build -t rajatchauhan407/react-client -f Dockerfile.dev ./client
+  - docker build -t react-client -f Dockerfile.dev ./client
 
 script: 
-  - docker run -e CI=true rajatchauhan407/react-client npm test -- --coverage
+  - docker run -e CI=true react-client npm test -- --coverage
 after_success:
   - docker build -t rajatchauhan407/mulit-client ./client
   - docker build -t rajatchauhan407/mulit-nginx ./nginx

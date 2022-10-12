@@ -10,16 +10,16 @@ before_install:
 script: 
   - docker run -e CI=true rajatchauhan407/react-client npm test
 after_success:
-  - docker build -t rajatchauhan407/mulit-client ./client
-  - docker build -t rajatchauhan407/mulit-nginx ./nginx
-  - docker build -t rajatchauhan407/multi-server ./server
-  - docker build -t rajatchauhan407/mulit-worker ./worker
+  - docker build -t rajatchauhan407/client ./client
+  - docker build -t rajatchauhan407/nginx ./nginx
+  - docker build -t rajatchauhan407/server ./server
+  - docker build -t rajatchauhan407/worker ./worker
 
 #Log in to Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push rajatchauhan407/multi-client
-  - docker push rajatchauhan407/multi-nginx
-  - docker push rajatchauhan407/mulit-server
-  - docker push rajatchauhan407/multi-worker
+  - docker push rajatchauhan407/client
+  - docker push rajatchauhan407/nginx
+  - docker push rajatchauhan407/server
+  - docker push rajatchauhan407/worker
 
 
